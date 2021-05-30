@@ -2,7 +2,8 @@
 const db = require('../../data/dbConfig');
 
 function get() {
-    return db('tasks');
+    return db('tasks').select('tasks.*', 'projects.project_name', 'projects.project_description')
+    .join('projects', 'projects.project_id', '=', 'tasks.project_id');
 }
 
 function getById(task_id) {
