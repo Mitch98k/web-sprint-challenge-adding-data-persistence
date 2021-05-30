@@ -5,13 +5,13 @@ function get() {
     return db('projects');
 }
 
-function getById(id) {
-    return db('projects').where({id}).first();
+function getById(project_id) {
+    return db('projects').where({project_id}).first();
 }
 
 async function add(project) {
-    const [id] = await db('projects').add(project);
-    return getById(id);
+    const [project_id] = await db('projects').insert(project);
+    return getById(project_id);
 }
 
 module.exports = {

@@ -5,12 +5,12 @@ function get() {
     return db('resources');
 }
 
-function getById(id) {
-    return db('resources').where({id}).first();
+function getById(resource_id) {
+    return db('resources').where({resource_id}).first();
 }
 async function add(resource) {
-    const [id] = await db('resources').insert(resource);
-    return getById(id);
+    const [resource_id] = await db('resources').insert(resource);
+    return getById(resource_id);
 }
 
 module.exports = {

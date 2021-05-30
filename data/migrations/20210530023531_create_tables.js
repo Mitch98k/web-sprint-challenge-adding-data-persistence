@@ -8,7 +8,6 @@ exports.up = function(knex) {
         tbl.boolean('project_completed').defaultTo(false);
         tbl.integer('PR_id')
             .unsigned()
-            .notNullable()
             .references('project_resources.PR_id')
             .onDelete('CASCADE')
             .onUpdate('CASCADE');
